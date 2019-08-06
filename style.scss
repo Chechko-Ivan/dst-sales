@@ -622,3 +622,264 @@ p {
     }
   }
 }
+
+.section-application {
+  background-color: $green;
+  padding: 110px 0 95px 0;
+
+  @media (max-width: 992px) {
+    padding: 70px 0 50px 0;
+  }
+
+  .base-title {
+    color: #ffffff;
+  }
+}
+
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 90px;
+  flex-wrap: wrap;
+
+  @media (max-width: 992px) {
+    margin-top: 60px;
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
+
+  &_item {
+    display: flex;
+    align-items: flex-start;
+    line-height: 1;
+    flex-basis: 50%;
+
+    &:not(:last-of-type) {
+      margin-bottom: 70px;
+
+      @media (max-width: 992px) {
+        margin-bottom: 40px;
+      }
+
+      @media (max-width: 576px) {
+        margin-bottom: 20px;
+        flex-basis: 40%;
+      }
+    }
+
+    svg {
+      // @media (max-width: 576px) {
+      //   width: 10px;
+      //   height: 10px;
+      // }
+    }
+  }
+
+  &_title {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 16px;
+    }
+  }
+
+  &_link {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: rgba(#ffffff, 0.75);
+    text-decoration: none;
+    line-height: 1.5;
+    transition: all 0.25s ease;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 13px;
+    }
+
+    svg {
+      margin-left: 4px;
+
+      @media (max-width: 576px) {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &_link--icons {
+    // @media (max-width: 576px) {
+    //   flex-direction: column;
+    //   align-items: flex-start;
+    // }
+  }
+
+  a.contacts_link {
+    &:hover {
+      color: rgba(#ffffff, 1);
+    }
+  }
+
+  &_icon {
+    margin-right: 25px;
+
+    @media (max-width: 576px) {
+      margin-right: 20px;
+    }
+  }
+}
+
+// Form Style
+.form {
+  margin-top: 90px;
+
+  @media (max-width: 992px) {
+    margin-top: 60px;
+  }
+
+  &_row {
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-of-type) {
+      margin-bottom: 35px;
+    }
+  }
+
+  &_action {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &_submit {
+    position: relative;
+    padding: 0 35px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    color: #0e9244;
+    background-color: rgba(#ffffff, 0.75);
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 700;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+      padding: 0 20px;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
+
+    &:active {
+      &::before {
+        background-color: rgba(#ffffff, 1);
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: rgba(#ffffff, 0.5);
+      transition: all 0.25s ease;
+      z-index: -1;
+    }
+  }
+}
+
+.group {
+  position: relative;
+  width: 45%;
+
+  &.w-100 {
+    width: 100%;
+  }
+}
+
+input {
+  font-size: 16px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  color: #ffffff;
+  border-radius: 0 !important;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(#ffffff, 0.5);
+
+  &::placeholder {
+    opacity: 0;
+  }
+}
+
+input:focus {
+  outline: none;
+}
+
+label {
+  color: #a4aeb0;
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0px;
+  top: 10px;
+  transition: 0.2s ease all;
+}
+
+/* active state */
+input:not(:placeholder-shown)~label,
+input:focus~label {
+  top: -10px;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.bar:before,
+.bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  background: #ffffff;
+  transition: 0.2s ease all;
+}
+
+.bar:before {
+  left: 50%;
+}
+
+.bar:after {
+  right: 50%;
+}
+
+input:focus~.bar:before,
+input:focus~.bar:after {
+  width: 50%;
+}
