@@ -132,6 +132,12 @@ p {
   @include media-breakpoint-down(xs) {
     font-size: 15px;
   }
+
+  b {
+    
+    font-weight: 700;
+    color: #505050;
+  }
 }
 
 .base-title {
